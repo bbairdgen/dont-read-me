@@ -1,5 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// This license generates the badge to be displayed at the top of the README. 
 function renderLicenseBadge(license) {
   const badges = {
     MIT: '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)',
@@ -9,15 +8,14 @@ function renderLicenseBadge(license) {
     'Apache-2.0': '[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
   };
 
-  if (license) {
-    return badges[license]  
-  } else {
+  if (license === 'None') {
     return ''
+  } else {
+    return badges[license]  
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+// This function will create the license link based off of the selected license. 
 function renderLicenseLink(license) {
   const licenseLink = {
     MIT: '[License: MIT](https://opensource.org/licenses/MIT)',
@@ -27,22 +25,23 @@ function renderLicenseLink(license) {
     'Apache-2.0': '[License: Apache-2.0](https://opensource.org/licenses/Apache-2.0)'
   };
   
-  if (license) {
-    return licenseLink[license]  
-  } else {
+  if (license === 'None') {
     return ''
+  } else {
+    return licenseLink[license]  
   }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// This function will render the license section, if a license was selected.
 function renderLicenseSection(license) {
-  if (license) {
+  if (license === 'None') {
+    return ''
+  } else {
     return `This project is under the ${renderLicenseLink(license)} license.`
   }
 }
 
-// TODO: Create a function to generate markdown for README
+//This function holds the content that will be generated in Markdown. 
 
 function generateMarkdown(data) {
   return `# ${data.title}
